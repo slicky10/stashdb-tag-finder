@@ -1,0 +1,27 @@
+name: StashDB Tag Finder
+id: stashdbTagFinder
+description: Find scenes in your Stash library that have a specific tag on StashDB. Read-only.
+version: 0.3.0
+settings:
+  api_key:
+    displayName: StashDB API key
+    description: API key from stashdb.org (stored in Stash plugin configuration; never included in source package).
+    type: STRING
+  search_tag:
+    displayName: Tag to find
+    description: Exact StashDB tag name, e.g. Interracial.
+    type: STRING
+  max_scenes:
+    displayName: Maximum local scenes to check
+    description: Number of local scenes to examine (default 200; limit 10000).
+    type: NUMBER
+exec:
+  - python3
+  - "{pluginDir}/stashdbTagFinder.py"
+interface: raw
+errLog: info
+tasks:
+  - name: Find my scenes with a StashDB tag
+    description: Search linked StashDB scenes for your configured tag. Makes no changes.
+    defaultArgs:
+      mode: find_tag
