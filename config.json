@@ -1,0 +1,11 @@
+{
+  "library_root": "/path/to/your/stash/library",
+  "destination_root": "/path/to/your/stash/library/Organized",
+  "max_scenes": 200,
+  "allow_move": false,
+  "filename_fallback": true,
+  "overwrite_metadata": false,
+  "stashdb_endpoint": "https://stashdb.org/graphql",
+  "stashdb_api_key": "",
+  "stashdb_search_tag": "Interracial"
+}

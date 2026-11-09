@@ -1,0 +1,35 @@
+name: Smart Organizer
+id: smartOrganizer
+description: Import local sidecar metadata and plan or apply conservative file organization.
+version: 0.2.0
+exec:
+  - python3
+  - "{pluginDir}/smartOrganizer.py"
+interface: raw
+errLog: error
+tasks:
+  - name: Preview metadata updates
+    description: Read JSON sidecars and filenames; show proposed changes only.
+    defaultArgs:
+      mode: metadata
+      dry_run: true
+  - name: Apply metadata updates
+    description: Write missing scene metadata from local sidecars and filenames.
+    defaultArgs:
+      mode: metadata
+      dry_run: false
+  - name: Preview file organization
+    description: Plan file moves without changing the filesystem.
+    defaultArgs:
+      mode: organize
+      dry_run: true
+  - name: Apply file organization
+    description: Move eligible single-file scenes into organized folders. BACK UP FIRST.
+    defaultArgs:
+      mode: organize
+      dry_run: false
+
+  - name: Find my scenes with a StashDB tag
+    description: Read-only match of StashDB tags against locally identified scenes. Set tag in config.json.
+    defaultArgs:
+      mode: stashdb_tags
